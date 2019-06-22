@@ -550,6 +550,7 @@ else
         --enable-libopus \
         --enable-libvorbis \
         --enable-bsf=aac_adtstoasc \
+	--enable-openssl \
         \
         --disable-doc \
         $ADDITIONAL_CONFIGURE_FLAG
