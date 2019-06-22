@@ -522,7 +522,6 @@ else
         --pkg-config-flags="--static" \
         --enable-pic \
         --enable-small \
-        --enable-gpl \
         \
         --disable-shared \
         --enable-static \
@@ -550,7 +549,7 @@ else
         --enable-libopus \
         --enable-libvorbis \
         --enable-bsf=aac_adtstoasc \
-	--enable-openssl \
+	    --enable-openssl \
         \
         --disable-doc \
         $ADDITIONAL_CONFIGURE_FLAG

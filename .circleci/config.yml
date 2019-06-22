@@ -87,7 +87,7 @@ jobs:
             TAG=`date +%Y-%m-%d`;
             ./ghr \
               -t "$GITHUB_TOKEN" \
-              -u 'Khang-NT' \
+              -u 'ramsundark5' \
               -r 'ffmpeg-binary-android' \
               -c "$CIRCLE_SHA1" \
               -delete \
