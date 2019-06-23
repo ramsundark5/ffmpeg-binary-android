@@ -522,6 +522,8 @@ else
         --pkg-config-flags="--static" \
         --enable-pic \
         --enable-small \
+        --enable-gpl \
+        --enable-nonfree \
         \
         --disable-shared \
         --enable-static \
