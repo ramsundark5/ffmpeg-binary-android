@@ -14,7 +14,6 @@ defaults: &defaults
             mkdir -p build_logs;
             export FINAL_DIR=$(pwd)/artifacts/$TARGET;
             export BUILD_DIR=$(pwd)/build_scripts/build_dir && mkdir -p $BUILD_DIR;
-            ./build_scripts/build_ffmpeg.sh $TARGET full $BUILD_DIR $FINAL_DIR;
             ./build_scripts/build_ffmpeg.sh $TARGET lite $BUILD_DIR $FINAL_DIR;
       - run: 
           name: Copy error report
@@ -78,7 +77,6 @@ jobs:
             export UPLOAD_FOLDER="$(pwd)/uploads" && mkdir -p $UPLOAD_FOLDER;
             cd artifacts;
             for f in *; do 
-              tar -cjf $UPLOAD_FOLDER/$f-full.tar.bz2 -C $f/full .;
               tar -cjf $UPLOAD_FOLDER/$f-lite.tar.bz2 -C $f/lite .;
             done;
             curl -L -O 'https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip';
