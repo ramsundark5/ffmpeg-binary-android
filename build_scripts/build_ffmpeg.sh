@@ -56,7 +56,7 @@ X86_64_PREBUILT=$NDK/toolchains/x86_64-4.9/prebuilt/$OS
 # MIPS64_CROSS_PREFIX=$MIPS64_PREBUILT/bin/$HOST-
 
 if [ "$FFMPEG_VERSION" = "" ]; then
-    FFMPEG_VERSION="3.3.2"
+    FFMPEG_VERSION="4.1.3"
 fi
 if [ ! -d "ffmpeg-${FFMPEG_VERSION}" ]; then
     echo "Downloading ffmpeg-${FFMPEG_VERSION}.tar.bz2"
@@ -276,6 +276,7 @@ then
 fi
 
 export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
+#export PKG_CONFIG_PATH="/usr/local/Cellar/pkg-config/0.29.2"
 export CPP="${CROSS_PREFIX}cpp"
 export CXX="${CROSS_PREFIX}g++"
 export CC="${CROSS_PREFIX}gcc"
@@ -363,7 +364,7 @@ if [ "$FLAVOR" = "full" ]; then
         
         make clean
         make -j8
-        make install
+        #make install
     popd
 
     # required by fontconfig
