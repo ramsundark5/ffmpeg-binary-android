@@ -56,7 +56,7 @@ X86_64_PREBUILT=$NDK/toolchains/x86_64-4.9/prebuilt/$OS
 # MIPS64_CROSS_PREFIX=$MIPS64_PREBUILT/bin/$HOST-
 
 if [ "$FFMPEG_VERSION" = "" ]; then
-    FFMPEG_VERSION="4.1.3"
+    FFMPEG_VERSION="3.3.2"
 fi
 if [ ! -d "ffmpeg-${FFMPEG_VERSION}" ]; then
     echo "Downloading ffmpeg-${FFMPEG_VERSION}.tar.bz2"
@@ -276,7 +276,6 @@ then
 fi
 
 export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
-#export PKG_CONFIG_PATH="/usr/local/Cellar/pkg-config/0.29.2"
 export CPP="${CROSS_PREFIX}cpp"
 export CXX="${CROSS_PREFIX}g++"
 export CC="${CROSS_PREFIX}gcc"
@@ -364,7 +363,7 @@ if [ "$FLAVOR" = "full" ]; then
         
         make clean
         make -j8
-        #make install
+        make install
     popd
 
     # required by fontconfig
@@ -499,21 +498,12 @@ if [ "$FLAVOR" = "full" ]; then
         --disable-ffprobe \
         --disable-ffserver \
         \
-        --disable-demuxers \
-        --disable-muxers \
-        --enable-demuxer='aac,avi,dnxhd,flac,flv,gif,h261,h263,h264,image2,matroska,webm,mov,mp3,mp4,mpeg,ogg,srt,wav,webvtt,gif,image2,image2pipe,mjpeg' \
-        --enable-muxer='3gp,dnxhd,flac,flv,gif,image2,matroska,webm,mov,mp3,mp4,mpeg,ogg,opus,srt,wav,webvtt,ipod,gif,image2,image2pipe,mjpeg' \
-        \
-        --disable-encoders \
-        --disable-decoders \
-        --enable-encoder='aac,dnxhd,flac,flv,gif,libmp3lame,libopus,libshine,libvorbis,mpeg4,png,mjpeg,gif,srt,subrip,webvtt' \
-        --enable-decoder='aac,aac_at,aac_fixed,aac_latm,dnxhd,flac,flv,h261,h263,h263i,h263p,h264,vp8,vp9,libopus,libvorbis,mp3,mpeg4,wavpack,png,mjpeg,gif,pcm_s16le,pcm_s16be,rawvideo,srt,webvtt' \
-        \
         --enable-libmp3lame \
         --enable-libfreetype  \
         --enable-libfontconfig \
         --enable-bsf=aac_adtstoasc \
 	    --enable-openssl \
+        --enable-zlib \
         \
         --disable-doc \
         $ADDITIONAL_CONFIGURE_FLAG
@@ -535,19 +525,6 @@ else
         --disable-ffplay \
         --disable-ffprobe \
         --disable-ffserver \
-        \
-        --disable-protocols \
-        --enable-protocol='file,pipe' \
-        \
-        --disable-demuxers \
-        --disable-muxers \
-        --enable-demuxer='aac,avi,dnxhd,flac,flv,gif,h261,h263,h264,image2,matroska,webm,mov,mp3,mp4,mpeg,ogg,srt,wav,webvtt,gif,image2,image2pipe,mjpeg' \
-        --enable-muxer='3gp,dnxhd,flac,flv,gif,image2,matroska,webm,mov,mp3,mp4,mpeg,ogg,opus,srt,wav,webvtt,ipod,gif,image2,image2pipe,mjpeg' \
-        \
-        --disable-encoders \
-        --disable-decoders \
-        --enable-encoder='aac,dnxhd,flac,flv,gif,libmp3lame,libopus,libshine,libvorbis,mpeg4,png,mjpeg,gif,srt,subrip,webvtt' \
-        --enable-decoder='aac,aac_at,aac_fixed,aac_latm,dnxhd,flac,flv,h261,h263,h263i,h263p,h264,vp8,vp9,libopus,libvorbis,mp3,mpeg4,wavpack,png,mjpeg,gif,pcm_s16le,pcm_s16be,rawvideo,srt,webvtt' \
         \
         --enable-libshine \
         --enable-libmp3lame \
