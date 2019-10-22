@@ -513,6 +513,12 @@ if [ "$FLAVOR" = "full" ]; then
         --enable-libfontconfig \
         --enable-bsf=aac_adtstoasc \
 	    --enable-openssl \
+        \
+        --enable-jni \
+        --enable-mediacodec \
+        --enable-decoder=h264_mediacodec \
+        --enable-hwaccel=h264_mediacodec \
+        --enable-opengl \
         --enable-zlib \
         \
         --disable-doc \
@@ -553,6 +559,12 @@ else
         --enable-libvorbis \
         --enable-bsf=aac_adtstoasc \
 	    --enable-openssl \
+        \
+        --enable-jni \
+        --enable-mediacodec \
+        --enable-decoder=h264_mediacodec \
+        --enable-hwaccel=h264_mediacodec \
+        --enable-opengl \
         \
         --disable-doc \
         $ADDITIONAL_CONFIGURE_FLAG
