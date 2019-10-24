@@ -19,7 +19,7 @@ echo $JAVA_HOME
 
 sudo apt-get update
 sudo apt install -y software-properties-common
-sudo add-apt-repository ppa:openjdk-r/ppa
+sudo add-apt-repository ppa:openjdk-r/ppa -y
 sudo apt-get install -y openjdk-8-jre openjdk-8-jdk
 echo $JAVA_HOME
 
