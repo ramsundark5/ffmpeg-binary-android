@@ -14,6 +14,14 @@ if [ "$NDK" = "" ] || [ ! -d $NDK ]; then
 	exit 1
 fi
 
+echo $JAVA_HOME
+
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get install -y openjdk-8-jre openjdk-8-jdk
+echo $JAVA_HOME
+
 export TARGET=$1
 export FLAVOR=$2
 export PREFIX=$3
