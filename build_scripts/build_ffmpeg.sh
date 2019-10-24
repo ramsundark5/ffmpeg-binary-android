@@ -515,7 +515,6 @@ if [ "$FLAVOR" = "full" ]; then
         --enable-openssl \
         \
         --enable-hwaccels \
-        --enable-opengl \
         --enable-zlib \
         \
         --disable-doc \
@@ -558,7 +557,6 @@ else
         --enable-openssl \
         \
         --enable-hwaccels \
-        --enable-opengl \
         \
         --disable-doc \
         $ADDITIONAL_CONFIGURE_FLAG
