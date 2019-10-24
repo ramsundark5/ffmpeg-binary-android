@@ -9,6 +9,10 @@ defaults: &defaults
   steps:
       - checkout
       - run:
+          name: Setup JDK
+          command: |
+            sudo apt-get install openjdk-8-jre openjdk-8-jdk
+      - run:
           name: Compile FFmpeg
           command: |
             mkdir -p build_logs;

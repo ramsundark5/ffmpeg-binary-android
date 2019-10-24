@@ -514,6 +514,10 @@ if [ "$FLAVOR" = "full" ]; then
         --enable-bsf=aac_adtstoasc \
         --enable-openssl \
         \
+        --enable-jni \
+        --enable-mediacodec \
+        --enable-decoder=h264_mediacodec \
+        --enable-hwaccel=h264_mediacodec \
         --enable-hwaccels \
         --enable-zlib \
         \
@@ -554,8 +558,12 @@ else
         --enable-libopus \
         --enable-libvorbis \
         --enable-bsf=aac_adtstoasc \
-        --enable-openssl \
+	    --enable-openssl \
         \
+        --enable-jni \
+        --enable-mediacodec \
+        --enable-decoder=h264_mediacodec \
+        --enable-hwaccel=h264_mediacodec \
         --enable-hwaccels \
         \
         --disable-doc \
