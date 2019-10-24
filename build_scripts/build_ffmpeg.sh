@@ -514,9 +514,7 @@ if [ "$FLAVOR" = "full" ]; then
         --enable-bsf=aac_adtstoasc \
         --enable-openssl \
         \
-        --enable-mediacodec \
-        --enable-decoder=h264_mediacodec \
-        --enable-hwaccel=h264_mediacodec \
+        --enable-hwaccels \
         --enable-opengl \
         --enable-zlib \
         \
@@ -559,9 +557,7 @@ else
         --enable-bsf=aac_adtstoasc \
         --enable-openssl \
         \
-        --enable-mediacodec \
-        --enable-decoder=h264_mediacodec \
-        --enable-hwaccel=h264_mediacodec \
+        --enable-hwaccels \
         --enable-opengl \
         \
         --disable-doc \
