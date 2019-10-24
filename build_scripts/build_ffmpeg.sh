@@ -14,11 +14,12 @@ if [ "$NDK" = "" ] || [ ! -d $NDK ]; then
 	exit 1
 fi
 
+echo "Java Home is : "
 echo $JAVA_HOME
 
+sudo apt-get update
 sudo apt install -y software-properties-common
 sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
 sudo apt-get install -y openjdk-8-jre openjdk-8-jdk
 echo $JAVA_HOME
 
