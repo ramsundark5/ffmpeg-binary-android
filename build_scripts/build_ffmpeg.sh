@@ -18,8 +18,8 @@ echo "Java Home is : "
 echo $JAVA_HOME
 
 sudo apt-get update
-sudo apt install default-jre
-sudo apt install default-jdk
+sudo apt install -y default-jre
+sudo apt install -y default-jdk
 echo $JAVA_HOME
 
 #sudo apt install -y software-properties-common
