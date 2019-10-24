@@ -101,7 +101,6 @@ workflows:
       - build_arm_v8a
       - build_x86
       - build_x86_64
-      - build_native_linux
       - hold:
           type: approval
           requires:
@@ -111,7 +110,6 @@ workflows:
             - build_arm_v8a
             - build_x86
             - build_x86_64
-            - build_native_linux
           filters:
             branches:
               only: master
