@@ -11,6 +11,9 @@ defaults: &defaults
       - run:
           name: Setup JDK
           command: |
+            echo $JAVA_HOME
+            -I$(shell dirname $$(readlink -f $$(which java))|sed 's^jre/bin^^')/include
+            sudo apt install software-properties-common
             sudo add-apt-repository ppa:openjdk-r/ppa
             sudo apt-get update
             sudo apt-get install openjdk-8-jre openjdk-8-jdk
