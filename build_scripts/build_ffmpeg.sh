@@ -520,7 +520,7 @@ if [ "$FLAVOR" = "full" ]; then
         --disable-encoders \
         --disable-decoders \
         --enable-encoder='aac,dnxhd,flac,flv,gif,libmp3lame,libopus,libshine,libvorbis,mpeg4,png,mjpeg,gif,srt,subrip,webvtt' \
-        --enable-decoder='aac,aac_at,aac_fixed,aac_latm,dnxhd,flac,flv,h261,h263,h263i,h263p,h264,vp8,vp9,libopus,libvorbis,mp3,mpeg4,wavpack,png,mjpeg,gif,pcm_s16le,pcm_s16be,rawvideo,srt,webvtt' \
+        --enable-decoder='aac,aac_at,aac_fixed,aac_latm,dnxhd,flac,flv,h261,h263,h263i,h263p,h264,h264_mediacodec,vp8,vp9,libopus,libvorbis,mp3,mpeg4,wavpack,png,mjpeg,gif,pcm_s16le,pcm_s16be,rawvideo,srt,webvtt' \
         \
         --enable-libmp3lame \
         --enable-libfreetype  \
@@ -530,7 +530,6 @@ if [ "$FLAVOR" = "full" ]; then
         \
         --enable-jni \
         --enable-mediacodec \
-        --enable-decoder=h264_mediacodec \
         --enable-hwaccel=h264_mediacodec \
         --enable-hwaccels \
         --enable-zlib \
@@ -565,7 +564,7 @@ else
         --disable-encoders \
         --disable-decoders \
         --enable-encoder='aac,dnxhd,flac,flv,gif,libmp3lame,libopus,libshine,libvorbis,mpeg4,png,mjpeg,gif,srt,subrip,webvtt' \
-        --enable-decoder='aac,aac_at,aac_fixed,aac_latm,dnxhd,flac,flv,h261,h263,h263i,h263p,h264,vp8,vp9,libopus,libvorbis,mp3,mpeg4,wavpack,png,mjpeg,gif,pcm_s16le,pcm_s16be,rawvideo,srt,webvtt' \
+        --enable-decoder='aac,aac_at,aac_fixed,aac_latm,dnxhd,flac,flv,h261,h263,h263i,h263p,h264,h264_mediacodec,vp8,vp9,libopus,libvorbis,mp3,mpeg4,wavpack,png,mjpeg,gif,pcm_s16le,pcm_s16be,rawvideo,srt,webvtt' \
         \
         --enable-libshine \
         --enable-libmp3lame \
@@ -576,7 +575,6 @@ else
         \
         --enable-jni \
         --enable-mediacodec \
-        --enable-decoder=h264_mediacodec \
         --enable-hwaccel=h264_mediacodec \
         --enable-hwaccels \
         \
@@ -651,14 +649,16 @@ elif [ $TARGET == 'arm' ]; then
     LIBX264_FLAGS="--disable-asm"
     cp -a $OPENSSL_PREBUILT_FOLDER/android/openssl-armeabi/. $PREFIX
     build_one
-elif [ $TARGET == 'native' ]; then
+
+# disable building for linux
+#elif [ $TARGET == 'native' ]; then
     # host = current machine
-    CPU=x86-64
-    ARCH=native
-    OPTIMIZE_CFLAGS="-O2 -pipe -march=native"
-    ADDITIONAL_CONFIGURE_FLAG=
-    LIBX264_FLAGS=
-    build_one
+ #   CPU=x86-64
+ #  ARCH=native
+ #   OPTIMIZE_CFLAGS="-O2 -pipe -march=native"
+ #   ADDITIONAL_CONFIGURE_FLAG=
+ #   LIBX264_FLAGS=
+ #   build_one
 else
     echo "Unknown target: $TARGET"
     exit 1
