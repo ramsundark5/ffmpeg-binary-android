@@ -488,7 +488,7 @@ if [ $ARCH == "native" ]
 then
     CROSS_COMPILE_FLAGS=
 else 
-    CROSS_COMPILE_FLAGS="--target-os=linux \
+    CROSS_COMPILE_FLAGS="--target-os=android \
         --arch=$ARCH \
         --cross-prefix=$CROSS_PREFIX \
         --enable-cross-compile \
