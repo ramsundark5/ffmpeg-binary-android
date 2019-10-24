@@ -18,10 +18,15 @@ echo "Java Home is : "
 echo $JAVA_HOME
 
 sudo apt-get update
-sudo apt install -y software-properties-common
-sudo add-apt-repository ppa:openjdk-r/ppa -y
-sudo apt-get install -y openjdk-8-jre openjdk-8-jdk
+sudo apt install default-jre
+sudo apt install default-jdk
 echo $JAVA_HOME
+
+#sudo apt install -y software-properties-common
+#sudo add-apt-repository ppa:openjdk-r/ppa -y
+#sudo apt-get install -y openjdk-8-jre 
+#sudo apt-get install -y openjdk-8-jdk
+#echo $JAVA_HOME
 
 export TARGET=$1
 export FLAVOR=$2
